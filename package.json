@@ -6,16 +6,16 @@
     "services/**/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "nx build",
+    "affected:build": "nx affected -t build",
+    "affected:test": "nx affected -t test",
+    "build:local": "nx build",
     "graph": "nx run-many --target=build --graph",
-    "dev:all": "nx dev:storybook & yarn dev:packages",
+    "dev:all": "yarn dev:storybook & yarn dev:packages",
     "dev:storybook": "nx storybook @manon/storybook",
     "dev:packages": "nx run-many --target=dev --projects='@manon/react-hooks-*,@manon/react-components-*'"
   },
   "packageManager": "yarn@4.3.1",
   "devDependencies": {
-    "@manon/react-hooks-button": "workspace:^",
     "@storybook/addon-docs": "^8.1.11",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
@@ -28,8 +28,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.13",
-    "nx": "^19.3.1",
+    "nx": "^16.8.1",
     "prettier": "^3.0.3",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "vite": "^5.4.1"
   }
 }
